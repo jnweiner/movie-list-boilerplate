@@ -11,12 +11,21 @@ class App extends React.Component {
       allMovies: this.props.movies
     };
     this.updateDisplayedMovies = this.updateDisplayedMovies.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   updateDisplayedMovies(newDisplayedMovies) {
     this.setState({
       displayedMovies: newDisplayedMovies
     });
+  }
+
+  addMovie(title) {
+    var newMovie = {
+      title: title
+    };
+
+    this.state.allMovies.push(newMovie);
   }
 
   render() {
@@ -28,6 +37,7 @@ class App extends React.Component {
           displayedMovies={this.state.displayedMovies}
           allMovies={this.state.allMovies}
           updateDisplayedMovies={this.updateDisplayedMovies}
+          addMovie={this.addMovie}
         />
         <br />
         <MovieList

@@ -10,7 +10,7 @@ class Search extends React.Component {
 
     this.handleSearchBarClick = this.handleSearchBarClick.bind(this);
     this.handleSearchBarChange = this.handleSearchBarChange.bind(this);
-    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleSearchButtonClick = this.handleSearchButtonClick.bind(this);
   }
 
   handleSearchBarClick() {
@@ -25,7 +25,7 @@ class Search extends React.Component {
     });
   }
 
-  handleButtonClick() {
+  handleSearchButtonClick() {
     this.searchMovies(this.state.value);
     this.setState({
       value: ''
@@ -52,7 +52,7 @@ class Search extends React.Component {
     return (
       <div className="searchbar">
         <input type="text" value={this.state.value} onClick={this.handleSearchBarClick} onChange={(event) => this.handleSearchBarChange(event)}/>
-        <button className="submit" onClick={this.handleButtonClick}>Go!</button>
+        <button className="submit" onClick={this.handleSearchButtonClick}>Go!</button>
       </div>
     );
   }

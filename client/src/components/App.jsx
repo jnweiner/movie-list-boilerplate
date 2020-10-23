@@ -23,6 +23,7 @@ class App extends React.Component {
   addMovie(title) {
     var newMovie = {
       title: title,
+      watched: false
     };
 
     this.state.allMovies.push(newMovie);

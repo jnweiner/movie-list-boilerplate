@@ -5,7 +5,7 @@ var MovieList = (props) => (
   <table className="movielist">
     <tbody>
       {props.displayedMovies.map((movie, i) => 
-        <Movie title={movie.title} key={i}/>
+        <Movie movie={movie} key={i}/>
       )}
     </tbody>
   </table>

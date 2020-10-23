@@ -13,6 +13,9 @@ var Options = (props) => (
     <Add addMovie={props.addMovie}/>
     <br />
     <button className="showall" onClick={() => props.updateDisplayedMovies(props.allMovies)}>Show all movies</button>
+    <button className="showWatched">Show watched movies</button>
+    <button className="showToWatch">Show movies to watch</button>
+
   </div>
 );
 

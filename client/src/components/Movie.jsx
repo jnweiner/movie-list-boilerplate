@@ -16,14 +16,15 @@ class Movie extends React.Component {
     this.setState({
       watched: newWatchedStatus
     });
+    this.props.movie.watched = newWatchedStatus;
   }
 
   render() {
     return (
     <tr className="movie">
       <td>
-        {this.props.title}
-        <button className="watchstatus" onClick={this.toggleWatched}>{this.state.watched ? 'Watched' : 'Unwatched'}</button>
+        {this.props.movie.title}
+        <button className="watchstatus" onClick={this.toggleWatched}>{this.state.watched ? 'Watched' : 'To Watch'}</button>
       </td>
     </tr>
     );

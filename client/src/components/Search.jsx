@@ -52,7 +52,7 @@ class Search extends React.Component {
     return (
       <div className="searchbar">
         <input type="text" value={this.state.value} onClick={this.handleSearchBarClick} onChange={(event) => this.handleSearchBarChange(event)}/>
-        <button className="submit" onClick={this.handleSearchButtonClick}>Go!</button>
+        <button className="submit" onClick={this.handleSearchButtonClick}>Search</button>
       </div>
     );
   }

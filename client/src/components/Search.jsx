@@ -36,7 +36,7 @@ class Search extends React.Component {
     var newDisplay = [];
 
     this.props.allMovies.forEach(movie => {
-      if (movie.title.includes(query)) {
+      if (movie.title.toLowerCase().includes(query.toLowerCase())) {
         newDisplay.push(movie);
       }
     });

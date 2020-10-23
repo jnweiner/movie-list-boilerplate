@@ -1,7 +1,7 @@
 import React from 'react';
 
 var Movie = (props) => (
-  <li>{props.title}</li>
+  <tr className="movie"><td>{props.title}</td></tr>
 );
 
 export default Movie;

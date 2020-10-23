@@ -7,8 +7,8 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      displayedMovies: this.props.movies,
-      allMovies: this.props.movies
+      allMovies: [],
+      displayedMovies: []
     };
     this.updateDisplayedMovies = this.updateDisplayedMovies.bind(this);
     this.addMovie = this.addMovie.bind(this);
@@ -26,6 +26,7 @@ class App extends React.Component {
     };
 
     this.state.allMovies.push(newMovie);
+    this.updateDisplayedMovies(this.state.allMovies);
   }
 
   render() {

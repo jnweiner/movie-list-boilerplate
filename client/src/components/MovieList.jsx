@@ -4,7 +4,7 @@ import Movie from './Movie.jsx';
 var MovieList = (props) => (
   <table className="movielist">
     <tbody>
-      {props.movies.map((movie, i) => 
+      {props.displayedMovies.map((movie, i) => 
         <Movie title={movie.title} key={i}/>
       )}
     </tbody>

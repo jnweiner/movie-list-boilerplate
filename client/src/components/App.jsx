@@ -7,17 +7,31 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      displayedMovies: props.movies
+      displayedMovies: this.props.movies,
+      allMovies: this.props.movies
     };
+    this.updateDisplayedMovies = this.updateDisplayedMovies.bind(this);
+  }
+
+  updateDisplayedMovies(newDisplayedMovies) {
+    this.setState({
+      displayedMovies: newDisplayedMovies
+    });
   }
 
   render() {
     return (
       <div>
         <br />
-        <Search />
+        <Search
+          displayedMovies={this.state.displayedMovies}
+          allMovies={this.state.allMovies}
+          updateDisplayedMovies={this.updateDisplayedMovies}
+        />
         <h2>Movie List</h2>
-        <MovieList movies={this.state.displayedMovies}/>
+        <MovieList
+          displayedMovies={this.state.displayedMovies}
+        />
       </div>
     );
   }

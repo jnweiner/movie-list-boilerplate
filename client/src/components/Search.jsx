@@ -26,10 +26,26 @@ class Search extends React.Component {
   }
 
   handleButtonClick() {
-    console.log('go!', this.state.value);
+    this.searchMovies(this.state.value);
     this.setState({
       value: ''
     });
+  }
+
+  searchMovies(query) {
+    var newDisplay = [];
+
+    this.props.allMovies.forEach(movie => {
+      if (movie.title.includes(query)) {
+        newDisplay.push(movie);
+      }
+    });
+
+    if (!newDisplay.length) {
+      newDisplay.push({title: 'No movie by that name found'});
+    }
+
+    this.props.updateDisplayedMovies(newDisplay);
   }
 
   render() {

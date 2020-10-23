@@ -24,7 +24,7 @@ class Movie extends React.Component {
     <tr className="movie">
       <td>
         {this.props.movie.title}
-        <button className="watchstatus" onClick={this.toggleWatched}>{this.state.watched ? 'Watched' : 'To Watch'}</button>
+        <button className="watchstatus" onClick={this.toggleWatched}>{this.props.movie.watched ? 'Watched' : 'To Watch'}</button>
       </td>
     </tr>
     );

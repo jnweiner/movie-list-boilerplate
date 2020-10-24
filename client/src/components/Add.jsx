@@ -26,10 +26,13 @@ class Add extends React.Component {
   }
 
   handleAddButtonClick() {
-    this.props.addMovie(this.state.value);
-    this.setState({
-      value: ''
-    });
+    if (this.state.value !== '' && this.state.value !== 'Add a movie...') {
+      this.props.updateMessage(`${this.state.value} added!`)
+      this.props.addMovie(this.state.value);
+      this.setState({
+        value: ''
+      });
+    }
   }
 
   render() {

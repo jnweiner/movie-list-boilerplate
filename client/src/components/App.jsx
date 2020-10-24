@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieList from './MovieList.jsx';
 import Options from './Options.jsx';
+import Message from './Message.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -8,10 +9,12 @@ class App extends React.Component {
 
     this.state = {
       allMovies: [],
-      displayedMovies: []
+      displayedMovies: [],
+      message: ''
     };
     this.updateDisplayedMovies = this.updateDisplayedMovies.bind(this);
     this.addMovie = this.addMovie.bind(this);
+    this.updateMessage = this.updateMessage.bind(this);
   }
 
   updateDisplayedMovies(newDisplayedMovies) {
@@ -30,6 +33,12 @@ class App extends React.Component {
     this.updateDisplayedMovies(this.state.allMovies);
   }
 
+  updateMessage(message) {
+    this.setState({
+      message: message
+    });
+  }
+
   render() {
     return (
       <div>
@@ -40,7 +49,10 @@ class App extends React.Component {
           allMovies={this.state.allMovies}
           updateDisplayedMovies={this.updateDisplayedMovies}
           addMovie={this.addMovie}
+          updateMessage={this.updateMessage}
         />
+        <br />
+        <Message messageToUser={this.state.message}/>
         <br />
         <MovieList
           displayedMovies={this.state.displayedMovies}

@@ -5,7 +5,6 @@ class Movie extends React.Component {
     super(props);
 
     this.state = {
-      title: this.props.movie.title,
       watched: this.props.movie.watched
     };
 

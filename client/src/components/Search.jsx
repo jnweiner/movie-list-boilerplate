@@ -26,10 +26,12 @@ class Search extends React.Component {
   }
 
   handleSearchButtonClick() {
-    this.searchMovies(this.state.value);
-    this.setState({
-      value: ''
-    });
+    if (this.state.value !== '' && this.state.value !== 'Search...') {
+      this.searchMovies(this.state.value);
+      this.setState({
+        value: ''
+      });
+    }
   }
 
   searchMovies(query) {
@@ -41,10 +43,11 @@ class Search extends React.Component {
       }
     });
 
-    if (!newDisplay.length) {
-      newDisplay.push({title: 'No movie by that name found'});
+    if (newDisplay.length) {
+      this.props.updateMessage('Displaying matches...');
+    } else {
+      this.props.updateMessage('No matches found');
     }
-
     this.props.updateDisplayedMovies(newDisplay);
   }
 

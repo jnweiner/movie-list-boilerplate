@@ -5,14 +5,15 @@ class Movie extends React.Component {
     super(props);
 
     this.state = {
-      watched: false
+      title: this.props.movie.title,
+      watched: this.props.movie.watched
     };
 
     this.toggleWatched = this.toggleWatched.bind(this);
   }
 
   toggleWatched() {
-    var newWatchedStatus = this.state.watched === false ? true : false;
+    var newWatchedStatus = this.props.movie.watched === false ? true : false;
     this.setState({
       watched: newWatchedStatus
     });

@@ -23,8 +23,8 @@ class Movie extends React.Component {
 
   render() {
     return (
-    <div className="movie" onClick={() => this.setState({showInfo: !this.state.showInfo})}>
-      {this.props.movie.title}
+    <div className="movie">
+      <span onClick={() => this.setState({showInfo: !this.state.showInfo})}>{this.props.movie.title}</span>
       <button className="watchStatus" onClick={this.toggleWatched}>{this.props.movie.watched ? 'Watched' : 'To Watch'}</button>
       {this.state.showInfo ? <MovieDropdown />: null}
     </div>

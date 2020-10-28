@@ -7,7 +7,7 @@ class Movie extends React.Component {
 
     this.state = {
       watched: this.props.movie.watched,
-      showInfo: false
+      selected: false
     };
 
     this.toggleWatched = this.toggleWatched.bind(this);
@@ -23,11 +23,14 @@ class Movie extends React.Component {
 
   render() {
     return (
-    <div className="movie">
-      <span onClick={() => this.setState({showInfo: !this.state.showInfo})}>{this.props.movie.title}</span>
-      <button className="watchStatus" onClick={this.toggleWatched}>{this.props.movie.watched ? 'Watched' : 'To Watch'}</button>
-      {this.state.showInfo ? <MovieDropdown />: null}
-    </div>
+    <tbody>
+      <tr>
+        <td className={this.state.selected ? "movie selected" : "movie"} onClick={() => this.setState({selected: !this.state.selected})}>
+          {this.props.movie.title}
+        </td>
+      </tr>
+      {this.state.selected ? <MovieDropdown toggleWatched={this.toggleWatched} movie={this.props.movie}/>: null}
+    </tbody>
     );
   }
 

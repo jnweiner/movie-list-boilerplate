@@ -2,11 +2,11 @@ import React from 'react';
 import Movie from './Movie.jsx';
 
 var MovieList = (props) => (
-  <div className="movielist">
-      {props.displayedMovies.map((movie) => 
-        <Movie movie={movie} key={movie.title}/>
-      )}
-  </div>
+  <table className="movieList">
+    {props.displayedMovies.map((movie) => 
+      <Movie movie={movie} key={movie.title}/>
+    )}
+  </table>
 );
 
 export default MovieList;

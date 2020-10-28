@@ -1,9 +1,18 @@
 h2 {
   color: blue;
 }
-.movieDropdown {
-  border: 5px solid black;
+
+table {
+  width: 500px;
+  border-collapse: collapse;
 }
-.movieInfo, .movieImage {
-  padding: 50px;
+
+td {
+  border: 2px solid lightgray;
+  padding: 20px;
+}
+
+.selected {
+  font-weight: bold;
+  background-color: lightblue;
 }

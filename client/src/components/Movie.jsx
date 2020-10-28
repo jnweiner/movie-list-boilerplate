@@ -1,4 +1,5 @@
 import React from 'react';
+import MovieDropdown from './MovieDropdown.jsx';
 
 class Movie extends React.Component {
   constructor(props) {
@@ -22,17 +23,11 @@ class Movie extends React.Component {
 
   render() {
     return (
-    <table>
-      <tbody className="movie" onClick={() => this.setState({showInfo: !this.state.showInfo})}>
-        <tr>
-          <td>
-            {this.props.movie.title}
-            <button className="watchstatus" onClick={this.toggleWatched}>{this.props.movie.watched ? 'Watched' : 'To Watch'}</button>
-          </td>
-        </tr>
-      {this.state.showInfo ? <tr><td className="movieinfo">MOVIE INFO HERE</td></tr> : null}
-      </tbody>
-    </table>
+    <div className="movie" onClick={() => this.setState({showInfo: !this.state.showInfo})}>
+      {this.props.movie.title}
+      <button className="watchStatus" onClick={this.toggleWatched}>{this.props.movie.watched ? 'Watched' : 'To Watch'}</button>
+      {this.state.showInfo ? <MovieDropdown />: null}
+    </div>
     );
   }
 

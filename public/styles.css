@@ -1,3 +1,9 @@
 h2 {
   color: blue;
 }
+.movieDropdown {
+  border: 5px solid black;
+}
+.movieInfo, .movieImage {
+  padding: 50px;
+}

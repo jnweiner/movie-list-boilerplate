@@ -1,9 +1,10 @@
 import React from 'react';
 
 const Message = (props) => (
-  <span className="messagetouser">
+  <div className="messagetouser">
     {props.messageToUser}
-  </span>
+    <br />
+  </div>
 );
 
 export default Message;

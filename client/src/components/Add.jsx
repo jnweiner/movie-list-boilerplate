@@ -27,7 +27,7 @@ class Add extends React.Component {
 
   handleAddButtonClick() {
     if (this.state.value !== '' && this.state.value !== 'Add a movie...') {
-      this.props.updateMessage(`${this.state.value} added!`)
+      this.props.updateMessage(`Returning first search result for '${this.state.value}'!`)
       this.props.addMovie(this.state.value);
       this.setState({
         value: ''

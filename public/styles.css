@@ -2,6 +2,10 @@ h2 {
   color: blue;
 }
 
+#app {
+  height: 800px;
+}
+
 table {
   width: 500px;
   border-collapse: collapse;

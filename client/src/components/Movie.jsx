@@ -25,7 +25,7 @@ class Movie extends React.Component {
     return (
     <tbody>
       <tr>
-        <td className={this.state.selected ? "movie selected" : "movie"} onClick={() => this.setState({selected: !this.state.selected})}>
+        <td colSpan="2" className={this.state.selected ? "movie selected" : "movie"} onClick={() => this.setState({selected: !this.state.selected})}>
           {this.props.movie.title}
         </td>
       </tr>

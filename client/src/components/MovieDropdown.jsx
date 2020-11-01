@@ -3,9 +3,10 @@ import React from 'react';
 const MovieDropdown = (props) => (
   <tr>
     <td className="movieInfo">
-      Release date: {props.movie.date} <br />
-      Runtime: {props.movie.runtime} <br />
-      User rating: {props.movie.rating} <br />
+      <strong>Year:</strong> {props.movie.date.slice(0, 4)} <br />
+      <strong>Runtime:</strong> {props.movie.runtime} minutes <br />
+      <strong>User rating:</strong> {props.movie.rating} <br />
+      <br />
     <button className="watchStatus" onClick={props.toggleWatched}>{props.movie.watched ? 'Watched' : 'To Watch'}</button>
     </td>
     <td className="movieImage">

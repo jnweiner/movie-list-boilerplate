@@ -60,7 +60,9 @@ class App extends React.Component {
     return (
       <div>
         <h2>Movie List</h2>
-        <br />
+        <p>
+        <em>This product uses the TMDb API but is not endorsed or certified by TMDb.</em>
+        </p>
         <Options
           displayedMovies={this.state.displayedMovies}
           allMovies={this.state.allMovies}

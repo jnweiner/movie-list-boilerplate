@@ -2,6 +2,8 @@ import React from 'react';
 import MovieList from './MovieList.jsx';
 import Options from './Options.jsx';
 import Message from './Message.jsx';
+import axios from 'axios';
+import API_KEY from '../../config/tmbd.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,14 +25,29 @@ class App extends React.Component {
     });
   }
 
-  addMovie(title) {
-    var newMovie = {
-      title: title,
-      watched: false
-    };
-
-    this.state.allMovies.push(newMovie);
-    this.updateDisplayedMovies(this.state.allMovies);
+  addMovie(userInput) {
+    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${userInput}`)
+      .then(response => {
+        return response.data.results[0].id;
+      })
+      .then(movieId => {
+        return axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`)
+      })
+      .then(movieDetails => {
+        var movie = {
+          watched: false,
+          title: movieDetails.data.title,
+          date: movieDetails.data.release_date,
+          runtime: movieDetails.data.runtime,
+          poster: movieDetails.data.poster_path,
+          rating: movieDetails.data.vote_average
+        };
+        this.state.allMovies.push(movie);
+        this.updateDisplayedMovies(this.state.allMovies);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   updateMessage(message) {

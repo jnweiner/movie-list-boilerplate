@@ -25,6 +25,18 @@ class App extends React.Component {
     });
   }
 
+  fetchMovies() {
+    axios.get('/movies')
+      .then(movies => {
+        this.setState({
+          allMovies: movies
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   addMovie(userInput) {
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${userInput}`)
       .then(response => {
@@ -37,11 +49,12 @@ class App extends React.Component {
         var movie = {
           watched: false,
           title: movieDetails.data.title,
-          date: movieDetails.data.release_date,
+          year: movieDetails.data.release_date.slice(0, 4),
           runtime: movieDetails.data.runtime,
           poster: movieDetails.data.poster_path,
           rating: movieDetails.data.vote_average
         };
+        console.log(movie);
         this.state.allMovies.push(movie);
         this.updateDisplayedMovies(this.state.allMovies);
       })

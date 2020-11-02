@@ -3,7 +3,7 @@ import React from 'react';
 const MovieDropdown = (props) => (
   <tr>
     <td className="movieInfo">
-      <strong>Year:</strong> {props.movie.date.slice(0, 4)} <br />
+      <strong>Year:</strong> {props.movie.year} <br />
       <strong>Runtime:</strong> {props.movie.runtime} minutes <br />
       <strong>User rating:</strong> {props.movie.rating} <br />
       <br />

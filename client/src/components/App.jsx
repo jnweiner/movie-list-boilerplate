@@ -53,15 +53,17 @@ class App extends React.Component {
       })
       .then(movieDetails => {
         var movie = {
-          watched: false,
+          watched: 0,
           title: movieDetails.data.title,
           year: movieDetails.data.release_date.slice(0, 4),
           runtime: movieDetails.data.runtime,
           poster: movieDetails.data.poster_path,
           rating: movieDetails.data.vote_average
         };
-        this.state.allMovies.push(movie);
-        this.updateDisplayedMovies(this.state.allMovies);
+        return axios.post('/movies', movie);
+      })
+      .then(() => {
+        this.fetchMovies();
       })
       .catch(err => {
         console.log(err);

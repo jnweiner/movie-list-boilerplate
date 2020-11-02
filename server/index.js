@@ -39,7 +39,6 @@ app.get('/movies', (req, res) => {
 
 app.post('/movies', (req, res) => {
   const movie = req.body;
-  console.log(movie);
   Movie.sync()
     .then(() => {
       return Movie.create(movie);
@@ -52,6 +51,25 @@ app.post('/movies', (req, res) => {
       res.sendStatus(500);
     });
 })
+
+app.put('/movies', (req, res) => {
+  const newWatchedValue = req.body.watched ? 1 : 0;
+  Movie.sync()
+    .then(() => {
+      return Movie.update({watched: newWatchedValue}, {
+        where: {
+          id: req.body.id
+        }
+      });
+    })
+    .then(result => {
+      res.sendStatus(200);
+    })
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);

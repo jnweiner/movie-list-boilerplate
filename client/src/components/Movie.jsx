@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieDropdown from './MovieDropdown.jsx';
+import axios from 'axios';
 
 class Movie extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class Movie extends React.Component {
       watched: newWatchedStatus
     });
     this.props.movie.watched = newWatchedStatus;
+    axios.put('/movies', this.props.movie);
   }
 
   render() {

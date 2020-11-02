@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       allMovies: [],
       displayedMovies: [],
-      message: ''
+      message: 'Your full library...'
     };
     this.updateDisplayedMovies = this.updateDisplayedMovies.bind(this);
     this.addMovie = this.addMovie.bind(this);

@@ -21,6 +21,14 @@ app.get('/movies', (req, res) => {
       return Movie.findAll();
     })
     .then(results => {
+      results.forEach(result => {
+        if (result.watched === 0) {
+          result.watched = false;
+        } else {
+          result.watched = true;
+        }
+        result.rating = Number(result.rating);
+      });
       res.send(results);
     })
     .catch(err => {

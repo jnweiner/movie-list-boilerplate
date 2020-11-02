@@ -17,6 +17,11 @@ class App extends React.Component {
     this.updateDisplayedMovies = this.updateDisplayedMovies.bind(this);
     this.addMovie = this.addMovie.bind(this);
     this.updateMessage = this.updateMessage.bind(this);
+    this.fetchMovies = this.fetchMovies.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchMovies();
   }
 
   updateDisplayedMovies(newDisplayedMovies) {
@@ -29,8 +34,9 @@ class App extends React.Component {
     axios.get('/movies')
       .then(movies => {
         this.setState({
-          allMovies: movies
+          allMovies: movies.data
         });
+        this.updateDisplayedMovies(this.state.allMovies);
       })
       .catch(err => {
         console.log(err);
@@ -54,7 +60,6 @@ class App extends React.Component {
           poster: movieDetails.data.poster_path,
           rating: movieDetails.data.vote_average
         };
-        console.log(movie);
         this.state.allMovies.push(movie);
         this.updateDisplayedMovies(this.state.allMovies);
       })

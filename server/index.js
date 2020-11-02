@@ -5,6 +5,8 @@ const PORT = 3000 || process.env.PORT;
 
 app.use(morgan('dev'));
 
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
@@ -12,8 +14,6 @@ app.get('/', (req, res) => {
 app.get('/api/movies', (req, res) => {
   res.send('list of movies here');
 });
-
-app.use(express.static('public'));
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
